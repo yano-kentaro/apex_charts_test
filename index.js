@@ -6,7 +6,7 @@ var options = {
 		type: 'bar',
 		height: 380,
 		animations: { // アニメーション設定
-			enabled: false,
+			enabled: true,
 		}
 	},
 	plotOptions: {

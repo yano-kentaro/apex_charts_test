@@ -4,15 +4,18 @@ var options = {
 	}],
 	chart: {
 		type: 'bar',
-		height: 380
+		height: 380,
+		animations: { // アニメーション設定
+			enabled: false,
+		}
 	},
 	plotOptions: {
 		bar: {
-			barHeight: '100%',
-			distributed: true,
-			horizontal: true,
+			barHeight: '80%', // グラフの太さ
+			distributed: true, // 色分けするか
+			horizontal: true, // 横にするか
 			dataLabels: {
-				position: 'bottom'
+				position: 'bottom' // グラフ上のラベルをどこに揃えるか
 			},
 		}
 	},
@@ -20,29 +23,38 @@ var options = {
 		'#f48024', '#69d2e7'
 	],
 	dataLabels: {
-		enabled: true,
-		textAnchor: 'start',
+		enabled: true, // ラベルを表示するかどうか
+		textAnchor: 'start', // ラベルの位置
 		style: {
-			colors: ['#fff']
+			colors: ['#fff'] // ラベルの文字色
 		},
-		formatter: function (val, opt) {
+		formatter: function (val, opt) { // 表示するデータを加工する
 			return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
 		},
-		offsetX: 0,
-		dropShadow: {
+		offsetX: 0, // ラベルの開始位置を操作する
+		dropShadow: { // 文字に影をつけて見やすくする
 			enabled: true
 		}
 	},
-	stroke: {
+	stroke: { // グラフの枠
 		width: 1,
 		colors: ['#fff']
 	},
 	xaxis: {
-		categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-			'United States', 'China', 'India'
+		categories: [
+			'South Korea',
+			'Canada',
+			'United Kingdom',
+			'Netherlands',
+			'Italy',
+			'France',
+			'Japan',
+			'United States',
+			'China',
+			'India'
 		],
 	},
-	yaxis: {
+	yaxis: { // グラフの左側
 		labels: {
 			show: false
 		}
@@ -56,10 +68,10 @@ var options = {
 		text: 'Category Names as DataLabels inside bars',
 		align: 'center',
 	},
-	tooltip: {
+	tooltip: { // グラフにホバーした際に出すツールチップ
 		theme: 'dark',
 		x: {
-			show: false
+			show: true
 		},
 		y: {
 			title: {
@@ -68,7 +80,7 @@ var options = {
 				}
 			}
 		}
-	}
+	},
 };
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
